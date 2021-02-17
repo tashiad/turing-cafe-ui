@@ -1,6 +1,11 @@
+form {
+  margin-bottom: 20px;
+}
+
 input {
   margin: 3% 2%;
-  padding: 3px;
+  padding: 0.5%;
+  border: 1px solid white;
 }
 
 button {
@@ -8,7 +13,7 @@ button {
   background-color: teal;
   border: 1px solid white;
   color: white;
-  padding: 3px 20px;
+  padding: 0.5% 20px;
 }
 
 button:hover {

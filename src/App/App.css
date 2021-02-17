@@ -10,14 +10,34 @@
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
+  padding-bottom: 10%;
 }
 
 .app-title {
   color: teal;
   font-family: 'Pacifico', cursive;
   font-size: 50px;
+  -webkit-text-stroke: .025px white;
 }
 
 .resy-form {
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    padding-bottom: 30%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .App {
+    padding-bottom: 120%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .App {
+    padding-bottom: 400%;
+  }
 }

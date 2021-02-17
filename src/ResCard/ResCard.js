@@ -8,7 +8,7 @@ const ResCard = ({ id, name, date, time, number, cancelResy }) => {
       <p>{date}</p>
       <p>{time}</p>
       <p>Number of guests: {number}</p>
-      <button onClick={() => cancelResy(id)}>Cancel</button>
+      <button className="cancel-button" onClick={() => cancelResy(id)}>Cancel</button>
     </article>
   )
 }
