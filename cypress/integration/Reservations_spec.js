@@ -39,7 +39,7 @@ describe('Reservations Homepage', () => {
       .get('form input[name=date]').type('05/30').should('have.value', '05/30')
       .get('form input[name=time]').type('6:45').should('have.value', '6:45')
       .get('form input[name=number]').type('4').should('have.value', '4')
-      .get('button').click()
+      .get('.res-button').click()
       .get('.card').contains('Tashia')
   })
 })
