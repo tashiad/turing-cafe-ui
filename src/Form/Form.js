@@ -45,7 +45,7 @@ class Form extends Component {
           />
 
           <input
-            type='text'
+            type='text' // change to date?
             placeholder='Date (mm/dd)'
             name='date'
             value={this.state.date}
@@ -53,7 +53,7 @@ class Form extends Component {
           />
 
           <input
-            type='text'
+            type='text' // change to time?
             placeholder='Time'
             name='time'
             value={this.state.time}
@@ -61,7 +61,7 @@ class Form extends Component {
           />
 
           <input
-            type='text'
+            type='number'
             placeholder='Number of guests'
             name='number'
             value={this.state.number}
