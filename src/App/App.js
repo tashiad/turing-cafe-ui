@@ -25,9 +25,18 @@ class App extends Component {
       body: JSON.stringify(newResy)
     })
     .then(response => response.json())
-    .then(data => this.setState({
-      resData: [...this.state.resData, data]
-    }))
+    .then(data => this.setState({ resData: [...this.state.resData, data] }))
+    .catch(error => console.log(error))
+  }
+
+  cancelResy = (id) => {
+    fetch(`http://localhost:3001/api/v1/reservations/${id}`, {
+      method: 'DELETE',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify()
+    })
+    .then(response => response.json())
+    .then(data => this.setState({ resData: data }))
     .catch(error => console.log(error))
   }
 
@@ -39,7 +48,10 @@ class App extends Component {
           <Form addResy={this.addResy}/>
         </div>
         <div className='resy-container'>
-          <Reservations resData={this.state.resData}/>
+          <Reservations
+            resData={this.state.resData}
+            cancelResy={this.cancelResy}
+          />
         </div>
       </div>
     )

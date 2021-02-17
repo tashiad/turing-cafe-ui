@@ -2,7 +2,7 @@ import React from 'react'
 import './Reservations.css'
 import ResCard from '../ResCard/ResCard'
 
-const Reservations = ({ resData }) => {
+const Reservations = ({ resData, cancelResy }) => {
   const cards = resData.map(resy => {
     return (
       <ResCard
@@ -12,6 +12,7 @@ const Reservations = ({ resData }) => {
         date={resy.date}
         time={resy.time}
         number={resy.number}
+        cancelResy={cancelResy}
       />
     )
   })
