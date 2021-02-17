@@ -21,9 +21,35 @@ class Form extends Component {
             placeholder='Name'
             name='name'
             value={this.state.name}
-            // onChange={this.handleChange}
+            onChange={this.handleChange}
+          />
+
+          <input
+            type='text'
+            placeholder='Date'
+            name='date'
+            value={this.state.date}
+            onChange={this.handleChange}
+          />
+
+          <input
+            type='text'
+            placeholder='Time'
+            name='time'
+            value={this.state.time}
+            onChange={this.handleChange}
+          />
+
+          <input
+            type='text'
+            placeholder='Number of Guests'
+            name='number'
+            value={this.state.number}
+            onChange={this.handleChange}
           />
         </form>
+
+        <button onClick={this.submitIdea}>MAKE RESERVATION</button>
       </>
     )
   }
