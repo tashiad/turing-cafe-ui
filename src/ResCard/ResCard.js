@@ -3,7 +3,7 @@ import './ResCard.css'
 
 const ResCard = ({ id, name, date, time, number }) => {
   return (
-    <article>
+    <article className="card">
       <h2>{name}</h2>
       <p>{date}</p>
       <p>{time}</p>

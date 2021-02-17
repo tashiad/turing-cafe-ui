@@ -17,9 +17,9 @@ const Reservations = ({ resData }) => {
   })
 
   return (
-    <>
+    <section className="res-wrapper">
       {cards}
-    </>
+    </section>
   )
 }
 
