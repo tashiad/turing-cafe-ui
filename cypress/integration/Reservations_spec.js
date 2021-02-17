@@ -23,33 +23,23 @@ describe('Reservations Homepage', () => {
       .get('.card:first').contains('Test 1')
   })
 
-  // it('Should show an error message for a server side error for all movies API', () => {
-  //   cy
-  //     .intercept({
-  //       method: 'GET',
-  //       url: 'https://rancid-tomatillos.herokuapp.com/api/v2/movies',
-  //     },
-  //     {
-  //       statusCode: 500
-  //     })
-  //     .visit('http://localhost:3000')
-  //     .get('.error-message').contains('h2', 'Unable to find movies.')
-  // })
-  //
-  // it('Should be able to search by movie title', () => {
-  //   cy
-  //     .visit('http://localhost:3000')
-  //     .get('.input-field').type('war')
-  //     .get('.search-button').click()
-  //     .get('.poster:first').contains('h2', 'Onward')
-  //     .get('.poster').should('not.contain', 'Mulan')
-  // })
-  //
-  // it('Should be able to filter by minimum movie rating', () => {
-  //   cy
-  //     .visit('http://localhost:3000')
-  //     .get('.input-field').type('6')
-  //     .get('.search-button').click()
-  //     .get('.poster').should('not.contain', 'Mulan')
-  // })
+  it('Should be able to fill out the form inputs', () => {
+    cy
+      .visit('http://localhost:3000')
+      .get('form input[name=name]').type('Tashia').should('have.value', 'Tashia')
+      .get('form input[name=date]').type('05/30').should('have.value', '05/30')
+      .get('form input[name=time]').type('6:45').should('have.value', '6:45')
+      .get('form input[name=number]').type('4').should('have.value', '4')
+  })
+
+  it('Should be able to add a new reservation', () => {
+    cy
+      .visit('http://localhost:3000')
+      .get('form input[name=name]').type('Tashia').should('have.value', 'Tashia')
+      .get('form input[name=date]').type('05/30').should('have.value', '05/30')
+      .get('form input[name=time]').type('6:45').should('have.value', '6:45')
+      .get('form input[name=number]').type('4').should('have.value', '4')
+      .get('button').click()
+      .get('.card').contains('Tashia')
+  })
 })
