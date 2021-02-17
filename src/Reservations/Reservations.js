@@ -2,12 +2,23 @@ import React from 'react'
 import './Reservations.css'
 import ResCard from '../ResCard/ResCard'
 
-const Reservations = () => {
+const Reservations = ({ resData }) => {
+  const cards = resData.map(resy => {
+    return (
+      <ResCard
+        id={resy.id}
+        key={resy.id}
+        name={resy.name}
+        date={resy.date}
+        time={resy.time}
+        number={resy.number}
+      />
+    )
+  })
 
   return (
     <>
-      <ResCard />
-      <p>reservations!</p>
+      {cards}
     </>
   )
 }
