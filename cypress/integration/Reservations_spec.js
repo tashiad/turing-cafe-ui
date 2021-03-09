@@ -23,23 +23,27 @@ describe('Reservations Homepage', () => {
       .get('.card:first').contains('Test 1')
   })
 
-  it('Should be able to fill out the form inputs', () => {
-    cy
-      .visit('http://localhost:3000')
-      .get('form input[name=name]').type('Tashia').should('have.value', 'Tashia')
-      .get('form input[name=date]').type('05/30').should('have.value', '05/30')
-      .get('form input[name=time]').type('6:45').should('have.value', '6:45')
-      .get('form input[name=number]').type('4').should('have.value', '4')
-  })
-
   it('Should be able to add a new reservation', () => {
     cy
+      .intercept('POST', 'http://localhost:3001/api/v1/reservations', {
+        statusCode: 200,
+        body: {
+          "id": 18939837,
+          "name": "Test 4",
+          "date": "12/13",
+          "time": "6:30",
+          "number": 2
+        }
+      })
+      .intercept('http://localhost:3001/api/v1/reservations', {fixture: 'mock-resy-data.json'})
       .visit('http://localhost:3000')
-      .get('form input[name=name]').type('Tashia').should('have.value', 'Tashia')
-      .get('form input[name=date]').type('05/30').should('have.value', '05/30')
-      .get('form input[name=time]').type('6:45').should('have.value', '6:45')
-      .get('form input[name=number]').type('4').should('have.value', '4')
+      .get('form input[name=name]').type('Test 4').should('have.value', 'Test 4')
+      .get('form input[name=date]').type('12/13').should('have.value', '12/13')
+      .get('form input[name=time]').type('6:30').should('have.value', '6:30')
+      .get('form input[name=number]').type('2').should('have.value', '2')
       .get('.res-button').click()
-      .get('.card').contains('Tashia')
+      .get('.card').contains('Test 4')
   })
+
+  //add test for deleting a reservation.
 })
